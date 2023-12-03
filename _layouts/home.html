@@ -8,7 +8,7 @@ layout: site
 		{% unless item.project.size %}{% continue %}{% endunless %}
 		<section id="{{ item.name | slugify }}" class="project-container">
 			<h2 class="container-title">{{ item.name }}</h2>
-			<ul>{% for project in item.project %}<li><a class="project" href="{{ site.baseurl }}/games/{{ project.title | slugify }}/" style="background-image: url(/assets/images/{{ project.thumbnail }});"><div class="project-content">
+			<ul>{% for project in item.project %}<li><a class="project" href="{{ site.baseurl }}/games/{{ project.title | slugify }}/" style="background-image: url(/assets/thumbnails/{{ project.thumbnail }});"><div class="project-content">
 					<h3 class="project-title">{{ project.title }}</h3>
 					{% if project.description %}<span class="project-description">{{ project.description }}</span>{% endif %}
 			</div></a></li>{% endfor %}</ul>

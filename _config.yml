@@ -1,0 +1,36 @@
+timezone: Asia/Seoul
+lang: ko
+
+title: "Project"
+description: "My Project"
+url: "https://project.zuni.kim"
+baseurl: ""
+
+email:
+  - "hello@kimzuni.com"
+  - "hello@zuni.kim"
+github: kimzuni
+
+cdn: "https://cdn.jsdelivr.net/gh/kimzuni/cdn/blog"
+logos: "https://cdn.jsdelivr.net/gh/kimzuni/logos@v2.4.1"
+favicons: "https://cdn.jsdelivr.net/gh/kimzuni/logos@latest/kimzuni/favicons"
+
+
+
+include:
+  - _pages
+
+
+
+
+
+sass:
+  style: compressed
+  sourcemap: never
+
+defaults:
+  - scope:
+      path: "games/**/*.html"
+    values:
+      layout: game
+      permalink: /:path/:basename/

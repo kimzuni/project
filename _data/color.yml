@@ -1,0 +1,10 @@
+theme:
+  color: "#5cc9ff"
+  light: "#b8e7ff"
+  dark: "#0071a9"
+  sub: "#00abff"
+
+success: "green"
+warning: "orange"
+error: "red"
+danger: "red"

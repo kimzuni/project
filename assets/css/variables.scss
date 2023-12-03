@@ -1,0 +1,91 @@
+---
+---
+
+:root {
+	--white: #fff;
+	--black: #000;
+
+	--theme-color: {{ site.data.color["theme"]["color"] }};
+	--theme-color-light: {{ site.data.color["theme"]["light"] }};
+	--theme-color-dark: {{ site.data.color["theme"]["dark"] }};
+	--sub-theme-color: {{ site.data.color["theme"]["sub"] }};
+	--theme-color-trans: {{ site.data.color["theme"]["color"] }}77;
+
+	--success-color: {{ site.data.color["success"] }};
+	--warning-color: {{ site.data.color["warning"] }};
+	--error-color: {{ site.data.color["error"] }};
+	--danger-color: {{ site.data.color["danger"] }};
+
+	--shadow-color: var(--black);
+	--svg-draw-color: var(--color);
+}
+
+
+
+:root {
+	--color: #333;
+	--bg-color: #fff;
+	--bd-color: #ccc;
+
+	--sub-color: #777;
+	--sub-bg-color: #eee;
+
+	--github-color: #24292f;
+	--notion-color: #fff;
+
+
+
+	--theme-bg-color: var(--theme-color);
+/* } @media (prefers-color-scheme: light) { */
+} :root[darkmode="true"] {
+	--theme-bg-color: var(--theme-color-dark);
+
+
+
+	--color: #ddd;
+	--bg-color: #232323;
+	--bd-color: #444;
+
+	--sub-bg-color: #333;
+
+	--github-color: #fff;
+}
+
+
+
+:root {
+	--width: 850px;
+	--lineHeight: 1.4em;
+
+	--header-height: 3rem;
+	--nav-height: var(--header-height);
+	--nav-width: 0px;
+	--nav-maxWidth: 0px;
+	--sidebar-width: 0px;
+	--footer-height: 7.5rem;
+
+	--header-zIndex: 500;
+	--nav-zIndex: 600;
+	--msgbox-zIndex: 99999;
+	--scrollToTop-zIndex: calc(var(--msgbox-zIndex) + 1);
+
+	--gap-6: calc(var(--gap) / 6);
+	--gap-5: calc(var(--gap) / 5);
+	--gap-4: calc(var(--gap) / 4);
+	--gap-3: calc(var(--gap) / 3);
+	--gap-2: calc(var(--gap) / 2);
+	--gap: 1rem;
+	--gap2: calc(var(--gap) * 2);
+	--gap3: calc(var(--gap) * 3);
+	--gap4: calc(var(--gap) * 4);
+	--gap5: calc(var(--gap) * 5);
+	--gap6: calc(var(--gap) * 6);
+} @media (min-width: 768px) {
+	:root {
+		--nav-width: var(--header-height);
+		--nav-maxWidth: 250px;
+		--sidebar-width: 250px;
+
+		--gap: 1rem;
+	}
+}

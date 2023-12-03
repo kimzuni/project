@@ -1,0 +1,6 @@
+{% if site.data.nav %}<nav id="nav" aria-label="Main nav"><ul>{% for nav in site.data.nav %}
+	<li><a href="{{ nav['path'] }}"{% capture check %}/{{ page.url | split: '/' | slice: 1 }}/{% endcapture %}{% if check == nav['path'] %} select{% endif %}>
+		<span class="icon"{% unless nav['icon'] %} text="{{ nav['name'] | slice: 0 }}">{% else %}>{% include svg/{{ nav.icon }}.html %}{% endunless %}</span>
+		<span class="text">{{ nav['name'] }}</span>
+	</a></li>
+{% endfor %}</ul></nav>{% endif %}

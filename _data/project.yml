@@ -1,0 +1,5 @@
+- name: Games
+  project:
+    - title: "2048"
+      description: "HTML Game"
+      thumbnail: "2048.png"

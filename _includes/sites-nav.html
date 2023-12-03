@@ -1,0 +1,10 @@
+{% if site.data.sites-nav %}<nav id="sites-nav" class="sites-nav" aria-label="My Sites"><ul>{% for nav in site.data.sites-nav %}
+	<li><a{% assign check_1 = site.url | split: '//' | slice: 1 %}{% assign check_2 = nav['url'] | split: '//' | slice: 1 %}{% if check_1 == check_2 %} select{% else %} href="{{ nav['url'] }}" target="_blank"{% endif %}>
+		<span class="icon"{% unless nav['icon'] %} text="{{ nav['name'] | slice: 0 }}">{% else %}>{% include svg/{{ nav.icon }}.html %}{% endunless %}</span>
+		<span class="text">{{ nav['name'] }}</span>
+	</a></li>
+{% endfor %}</ul>
+<script type="text/javascript" src="{{ site.logos }}/kimzuni/svg-draw.js"></script>
+<script type="text/javascript" src="{{ site.logos }}/blog/svg-draw.js"></script>
+<script type="text/javascript" src="{{ site.logos }}/mail/svg-draw.js"></script>
+</nav>{% endif %}

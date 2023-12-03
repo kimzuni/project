@@ -1,0 +1,90 @@
+---
+---
+
+@use "sass:math";
+
+#score {
+	margin: var(--gap) 0;
+	font-size: 1.25rem;
+	text-align: center;
+}
+
+
+
+table {
+	margin: auto;
+	font-size: 1.75rem;
+	text-align: center;
+	border-collapse: collapse;
+} tbody, td {
+	border: 1px solid var(--bd-color);
+} td {
+	position: relative;
+	padding: var(--gap2);
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+} tbody td {
+	$colors: var(--sub-bg-color), lightyellow, #fa7, orange, coral, red, #ff7;
+
+	background-color: var(--bg-color);
+
+	&[num] {
+		--bg-color: yellow;
+		color: var(--black);
+
+		&:before {
+			content: attr(num);
+			position: absolute;
+		}
+	} @each $color in $colors {
+		$i: index($colors, $color);
+		&[num="#{math.pow(2, $i)}"] {
+			--bg-color: #{$color};
+			@if ($i == 1) {
+				color: var(--color);
+			}
+		}
+	}
+}
+
+
+
+tfoot tr {
+	display: flex;
+	justify-content: center;
+} tfoot td button {
+} button:hover {
+} button:active, button.click {
+}
+
+#controller {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: var(--gap-3);
+	margin: var(--gap) 0;
+
+	div {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: var(--gap-3);
+	} button {
+		border: 1px solid var(--bd-color);
+		border-radius: .5em;
+		height: 2.25em;
+		width: 5em;
+		background: transparent;
+		cursor: pointer;
+
+		&:hover, &:focus {
+			border-color: var(--color);
+		} &:active, &.click {
+			border-color: var(--color);
+			background-color: var(--sub-bg-color);
+		}
+	}
+}

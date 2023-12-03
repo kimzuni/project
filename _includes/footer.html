@@ -1,0 +1,11 @@
+<footer id="footer">
+	<div id="footer-content">
+		{% if site.data.sites-nav %}<ul class="sites-nav">{% for nav in site.data.sites-nav %}
+			{% assign check_1 = site.url | split: "//" | slice: 1 %}{% assign check_2 = nav['url'] | split: "//" | slice: 1 %}
+			<li><a{% if check_1 != check_2 %} href="{{ nav['url'] }}"{% endif %}>
+				{% include svg/{{ nav.icon }}.html %}
+			</a></li>
+		{% endfor %}</ul>{% endif %}
+	</div>
+	<span id="footer-text">&copy; kimzuni.com</span>
+</footer>

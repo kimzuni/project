@@ -1,0 +1,47 @@
+---
+title: 2048
+description: HTML Game
+---
+
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/2048.css"/>
+
+
+<div id="container">
+	<div id="info">
+		<div id="score">Move: <span id="move-value">0</span><br/>Score: <span id="score-value">0</span></div>
+		<div id="option">
+			<button type="button" id="restart" onclick="Board.init();"><i class="fas fa-refresh"></i></button>
+			<button type="button" id="play" onclick="Board.play();"><i class="fas fa-play"></i></button>
+			<button type="button" id="pause" onclick="Board.pause();"><i class="fas fa-pause"></i></button>
+		</div>
+	</div>
+	<div id="setting">
+		<form class="custom" onsubmit="Board.init(...Array(...this.closest('div').querySelectorAll('input')).map((x) => x.value)); return false;">
+			<input name="x" placeholder="4" autocomplete="off"/> X <input name="y" placeholder="4" autocomplete="off"/>
+			<label>Start<button type="submit" hidden></button></label>
+		</form>
+		<hr/>
+		<div class="default">
+			<label>3 X 3<button type="button" onclick="Board.init(3, 3);" hidden></button></label>
+			<label>4 X 4<button type="button" onclick="Board.init(4, 4);" hidden></button></label>
+			<label>5 X 5<button type="button" onclick="Board.init(5, 5);" hidden></button></label>
+			<label>6 X 6<button type="button" onclick="Board.init(6, 6);" hidden></button></label>
+			<label>8 X 8<button type="button" onclick="Board.init(8, 8);" hidden></button></label>
+			<label>10 X 10<button type="button" onclick="Board.init(10, 10);" hidden></button></label>
+		</div>
+	</div>
+	<div id="board"></div>
+</div>
+
+<div id="controller">
+	<div>
+		<button type="button" id="upBtn">Up</button>
+	</div>
+	<div>
+		<button type="button" id="leftBtn">Left</button>
+		<button type="button" id="downBtn">Down</button>
+		<button type="button" id="rightBtn">Right</button>
+	</div>
+</div>
+
+<script type="text/javascript" src="{{ site.baseurl }}/assets/js/2048.js"></script>

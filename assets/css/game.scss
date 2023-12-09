@@ -2,6 +2,8 @@
 ---
 
 .page-title {
+	border-bottom: 1px solid var(--bd-color);
 	margin: var(--gap) 0;
+	padding-bottom: var(--gap);
 	text-align: center;
 }

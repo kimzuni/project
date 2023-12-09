@@ -3,60 +3,146 @@
 
 @use "sass:math";
 
-#score {
-	margin: var(--gap) 0;
-	font-size: 1.25rem;
-	text-align: center;
-}
 
 
+#container {
+	--board-width: 450px;
+	--board-height: var(--board-width);
 
-table {
 	margin: auto;
-	font-size: 1.75rem;
-	text-align: center;
-	border-collapse: collapse;
-} tbody, td {
-	border: 1px solid var(--bd-color);
-} td {
-	position: relative;
-	padding: var(--gap2);
-	display: inline-flex;
+	width: 100%;
+	max-width: var(--board-width);
+
+	&.play {
+		#setting, button#play {
+			display: none;
+		}
+	} &:not(.play) {
+		#board, button#pause {
+			display: none;
+		}
+	}
+} #info {
+	display: flex;
+	align-items: flex-end;
+	padding-bottom: var(--gap-2);
+	font-size: 1.15rem;
+
+	#option {
+		flex: 1;
+		display: flex;
+		justify-content: flex-end;
+		gap: var(--gap-2);
+
+		button {
+			background: transparent;
+			border: 0;
+			font-size: 1.5rem;
+			cursor: pointer;
+			transition: .1s color;
+
+			&:hover {
+				color: var(--theme-color);
+			}
+		}
+	}
+} #setting {
+	border: 2px solid var(--bd-color);
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-} tbody td {
-	$colors: var(--sub-bg-color), lightyellow, #fa7, orange, coral, red, #ff7;
+	gap: var(--gap);
+	padding: var(--gap) 0;
+	height: var(--board-height);
 
-	background-color: var(--bg-color);
+	label, input {
+		transition: .1s color, .1s border-color;
+	} label {
+		border: 1px solid var(--bd-color);
+		border-radius: .5em;
+		line-height: 2rem;
+		width: 6.25rem;
+		text-align: center;
+		cursor: pointer;
 
-	&[num] {
-		--bg-color: yellow;
-		color: var(--black);
-
-		&:before {
-			content: attr(num);
-			position: absolute;
+		&:hover {
+			border-color: var(--theme-color);
+			color: var(--theme-color);
 		}
-	} @each $color in $colors {
-		$i: index($colors, $color);
-		&[num="#{math.pow(2, $i)}"] {
-			--bg-color: #{$color};
-			@if ($i == 1) {
-				color: var(--color);
+	} hr {
+		border: 0 dashed var(--bd-color);
+		border-top-width: 1px;
+		height: 0;
+		width: 100%;
+	} .default {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: var(--gap);
+	} .custom {
+		flex: 1;
+		display: flex;
+		gap: var(--gap);
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+
+		input {
+			background: transparent;
+			border: 0px solid var(--bd-color);
+			border-bottom-width: 1px;
+			outline: 0;
+			width: 3em;
+			text-align: center;
+
+			&:focus {
+				border-color: var(--theme-color);
+			}
+		}
+	}
+} #board {
+	border: 1px solid var(--bd-color);
+	display: flex;
+	flex-direction: column;
+	height: var(--board-height);
+
+	div {
+		flex: 1;
+		display: flex;
+	} span {
+		$colors: var(--sub-bg-color), lightyellow, #fa7, orange, coral, red, #ff7;
+
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--bg-color);
+		border: 1px solid var(--bd-color);
+		font-size: 2em;
+
+		&[num] {
+			--bg-color: yellow;
+			color: var(--black);
+	
+			&:before {
+				content: attr(num);
+				position: absolute;
+			}
+		} @each $color in $colors {
+			$i: index($colors, $color);
+			&[num="#{math.pow(2, $i)}"] {
+				--bg-color: #{$color};
+				@if ($i == 1) {
+					color: var(--color);
+				}
 			}
 		}
 	}
 }
 
 
-
-tfoot tr {
-	display: flex;
-	justify-content: center;
-} tfoot td button {
-} button:hover {
-} button:active, button.click {
-}
 
 #controller {
 	display: flex;
@@ -79,12 +165,13 @@ tfoot tr {
 		width: 5em;
 		background: transparent;
 		cursor: pointer;
+		transition: .1s color, .1s border-color;
 
 		&:hover, &:focus {
 			border-color: var(--color);
 		} &:active, &.click {
-			border-color: var(--color);
-			background-color: var(--sub-bg-color);
+			border-color: var(--theme-color);
+			color: var(--theme-color);
 		}
 	}
 }

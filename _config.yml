@@ -28,9 +28,13 @@ sass:
   style: compressed
   sourcemap: never
 
+collections:
+  games:
+    output: true
+
 defaults:
   - scope:
-      path: "games/**/*.html"
+      type: games
     values:
       layout: game
-      permalink: /:path/:basename/
+      permalink: /games/:title/

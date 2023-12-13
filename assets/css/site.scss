@@ -12,6 +12,11 @@
 	padding: 0 var(--gap);
 	width: 100%;
 	max-width: var(--width);
+} #error {
+	padding: var(--gap) 0;
+	font-size: 1.25em;
+	font-weight: bold;
+	text-align: center;
 }
 
 #scroll-to-top {

@@ -1,5 +1,8 @@
 const container = document.querySelector("#container");
 const board = document.querySelector("#board");
+const end = document.createElement("div");
+end.id = "end";
+end.innerHTML = `<div>The End!<label>Go Back<button type="button" hidden onclick="Board.pause();"></button></label></div>`;
 
 const Board = {
 	x: 4, y: 4, n_create: 1, n_mv: 0,
@@ -30,6 +33,7 @@ const Board = {
 		if (n) this.n_create = n*1;
 		this.state = Array(this.x*this.y).fill(null);
 
+		container.querySelector("#end")?.remove();
 		board.innerHTML = "";
 		for (let y=0; y<this.y; y++) {
 			const row = document.createElement("div");
@@ -70,6 +74,8 @@ const Board = {
 				else if (this.state[idx] === this.state[next]) return false;
 			}
 		}
+
+		container.append(end);
 		return true;
 	},
 	update: function() {
@@ -83,9 +89,7 @@ const Board = {
 			else
 				box.removeAttribute(this.attr);
 		}
-		if (this.end()) {
-			alert("The End!");
-		}
+		this.end();
 	},
 	create: function(n) {
 		const cnt = n || this.n_create;
